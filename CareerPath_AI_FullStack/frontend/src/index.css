@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  
+  .material-symbols-filled {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* Core Themes */
+  .theme-dark {
+    --bg-base: #090d16;
+    --card-bg: rgba(17, 24, 39, 0.75);
+    --border-color: rgba(56, 189, 248, 0.15);
+    --primary-accent: #38bdf8;
+  }
+
+  .theme-light {
+    --bg-base: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(2, 132, 199, 0.15);
+    --primary-accent: #0284c7;
+  }
+
+  .theme-purple {
+    --bg-base: #0d0718;
+    --card-bg: rgba(27, 16, 48, 0.75);
+    --border-color: rgba(192, 132, 252, 0.2);
+    --primary-accent: #c084fc;
+  }
+
+  .theme-ocean {
+    --bg-base: #04111d;
+    --card-bg: rgba(10, 33, 56, 0.75);
+    --border-color: rgba(34, 211, 238, 0.2);
+    --primary-accent: #22d3ee;
+  }
+
+  .theme-emerald {
+    --bg-base: #060e0a;
+    --card-bg: rgba(12, 31, 23, 0.75);
+    --border-color: rgba(52, 211, 153, 0.2);
+    --primary-accent: #34d399;
+  }
+
+  /* Fluid containers */
+  .app-container {
+    width: min(94%, 1280px);
+    margin-inline: auto;
+  }
+}
+
+/* Base Body and Smooth Scrolling */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-base, #090d16);
+  color: #f8fafc;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode overrides */
+html.theme-light,
+body.theme-light,
+.theme-light {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.theme-light .bg-slate-950,
+.theme-light .bg-slate-950\/80,
+.theme-light .bg-slate-950\/60,
+.theme-light .bg-slate-950\/50,
+.theme-light .bg-slate-950\/40 {
+  background-color: #f1f5f9 !important;
+}
+
+.theme-light .bg-slate-900,
+.theme-light .bg-slate-900\/80,
+.theme-light .bg-slate-900\/70,
+.theme-light .bg-slate-900\/60,
+.theme-light .bg-slate-900\/50 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.theme-light .bg-slate-800,
+.theme-light .bg-slate-800\/80,
+.theme-light .bg-slate-800\/50 {
+  background-color: #f1f5f9 !important;
+}
+
+.theme-light .border-slate-800,
+.theme-light .border-slate-700,
+.theme-light .border-slate-700\/80,
+.theme-light .border-slate-700\/60 {
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+.theme-light .text-slate-200,
+.theme-light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.theme-light .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 130, 150, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 130, 150, 0.45);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Global theme skin: fixed Tailwind slate utilities are mapped to the active palette. */
+.app-shell { background: var(--bg-base); color: var(--text-color); min-height: 100vh; transition: background-color .3s ease, color .3s ease; }
+html, body { background: var(--bg-base); color: var(--text-color); }
+
+:root { --surface-950: #05070b; --surface-900: #0f172a; --surface-800: #1e293b; --text-strong: #f8fafc; --text-muted: #94a3b8; }
+
+.theme-midnight,
+.theme-emerald,
+.theme-cyberpunk,
+.theme-crimson,
+.theme-amber,
+.theme-glacier,
+.theme-contrast,
+.theme-purple,
+.theme-ocean,
+.theme-dark,
+.theme-light,
+.theme-porcelain,
+.theme-sandstone { --surface-950: var(--bg-base); --surface-900: var(--card-bg); }
+
+.theme-light, .theme-porcelain, .theme-sandstone { --text-strong: #0f172a; --text-muted: #64748b; }
+
+[class*="theme-"] .bg-slate-950 { background-color: color-mix(in srgb, var(--bg-base) 92%, black) !important; }
+[class*="theme-"] .bg-slate-900 { background-color: var(--card-bg) !important; }
+[class*="theme-"] .bg-slate-800 { background-color: color-mix(in srgb, var(--bg-base) 65%, var(--primary-accent)) !important; }
+[class*="theme-"] .border-slate-800, [class*="theme-"] .border-slate-700 { border-color: var(--border-color) !important; }
+[class*="theme-"] .text-white { color: var(--text-strong) !important; }
+[class*="theme-"] .text-slate-200, [class*="theme-"] .text-slate-300 { color: color-mix(in srgb, var(--text-color) 86%, var(--text-muted)) !important; }
+[class*="theme-"] .text-slate-400, [class*="theme-"] .text-slate-500 { color: var(--muted-text) !important; }
+[class*="theme-"] input, [class*="theme-"] textarea, [class*="theme-"] select { background-color: color-mix(in srgb, var(--bg-base) 90%, var(--primary-accent)) !important; color: var(--text-color) !important; border-color: var(--border-color) !important; }
+
+.theme-light .bg-white, .theme-porcelain .bg-white, .theme-sandstone .bg-white { background-color: #fff !important; color: #0f172a !important; }
+.theme-light .text-white, .theme-porcelain .text-white, .theme-sandstone .text-white { color: #0f172a !important; }
+.theme-light .border-white\/10, .theme-porcelain .border-white\/10, .theme-sandstone .border-white\/10 { border-color: #e2e8f0 !important; }
+
+/* The migrated ChatGPT-style chatbot used a few fixed hex colors. Bind those surfaces/text to the active theme. */
+[class*="theme-"] [class*="#212121"] { background-color: var(--bg-base) !important; }
+[class*="theme-"] [class*="#2f2f2f"], [class*="theme-"] [class*="#424242"] { background-color: var(--card-bg) !important; }
+[class*="theme-"] [class*="#565869"] { border-color: var(--border-color) !important; }
+[class*="theme-"] [class*="#b4b4b4"], [class*="theme-"] [class*="#676767"] { color: var(--muted-text) !important; }
+[class*="theme-"] [class*="#ececec"] { color: var(--text-color) !important; }
+
+@supports not (color-mix(in srgb, red, blue)) {
+  [class*="theme-"] .bg-slate-900 { background-color: var(--card-bg) !important; }
+  [class*="theme-"] .bg-slate-950 { background-color: var(--bg-base) !important; }
+}
