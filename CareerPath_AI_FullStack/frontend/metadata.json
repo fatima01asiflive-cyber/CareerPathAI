@@ -1,0 +1,10 @@
+{
+  "name": "CareerPath AI",
+  "description": "AI career guidance and gamified Computer Science learning platform for Intermediate (FSc) students with CS category resources, aptitude diagnostics, roadmap progression, projects, activity history, streaks and global AI coaching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "version": "3.2.7",
+  "release": "Project submission + industry AI review + notifications + full reset"
+}
